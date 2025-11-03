@@ -1,8 +1,10 @@
+package app;
+
 /**
  * Main class for the Humidity Control App.
  * Demonstrates Spring Boot REST API startup simulation.
  */
-public final class ProgramCodeModified {
+public final class ProgramCode {
 
     /**
      * Entry point of the program.
@@ -13,8 +15,10 @@ public final class ProgramCodeModified {
         System.out.println("Humidity Control App - Spring Boot REST API");
     }
 
-    // Private constructor to prevent instantiation
-    private ProgramCodeModified() {
-        // No instance allowed
+    /**
+     * Private constructor to prevent instantiation of utility class.
+     */
+    private ProgramCode() {
+        // no instances allowed
     }
 }
