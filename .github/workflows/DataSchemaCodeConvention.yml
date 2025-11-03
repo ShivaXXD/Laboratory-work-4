@@ -1,0 +1,26 @@
+name: SQL Code Convention Check
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  SQLLinter:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Клонування репозиторію
+      - name: Checkout Code in Repository
+        uses: actions/checkout@v4
+
+      # 2. Встановлення SQLFluff (аналізатор стилю SQL)
+      - name: Install SQLFluff
+        run: |
+          python3 -m pip install --upgrade pip
+          pip install sqlfluff
+
+      # 3. Перевірка файлу схеми на відповідність стандартам кодування
+      - name: Run SQLFluff Linter
+        run: |
+          sqlfluff lint DataSchema.sql --dialect postgres
