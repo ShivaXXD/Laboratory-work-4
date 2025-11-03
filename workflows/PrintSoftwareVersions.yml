@@ -7,34 +7,29 @@ on:
   workflow_dispatch:
 
 jobs:
-  data_processing_versions:
-    name: Data Processing Level
+  PrintLanguageVersions:
+    name:  Data Processing Level - Application Server / Android App
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Show Python version
-        run: python3 --version
+      - name: Print Java Version
+        run: java --version
 
-      - name: Show Node.js version
+      - name: Print Node.js Version
         run: node --version
 
-      - name: Show .NET SDK version
-        run: dotnet --version
+      - name: Print Python Version
+        run: python3 --version
 
-  data_access_versions:
-    name: 🗄️ Data Access Level
+  PrintDBMSVersions:
+    name: 🗄️ Data Access Level - PostgreSQL Database
     runs-on: ubuntu-latest
+    needs: [PrintLanguageVersions]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Show PostgreSQL version
+      - name: Print PostgreSQL Version
         run: psql --version
-
-      - name: Show MySQL version
-        run: mysql --version || echo "MySQL not preinstalled"
-
-      - name: Show SQLite version
-        run: sqlite3 --version
