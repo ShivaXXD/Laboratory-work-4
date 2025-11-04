@@ -20,9 +20,6 @@ jobs:
       - name: Print Node.js Version
         run: node --version
 
-      - name: Print Python Version
-        run: python3 --version
-
   PrintDBMSVersions:
     name: Data Access Level - PostgreSQL Database
     runs-on: ubuntu-latest
